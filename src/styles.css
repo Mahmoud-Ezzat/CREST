@@ -1,1 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: #88b5e7 url(images/FXR_ILR_04.jpg) repeat-x top left;
+}

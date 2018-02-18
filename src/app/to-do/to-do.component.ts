@@ -13,6 +13,7 @@ export class ToDoComponent implements OnInit {
   itemResource = new DataTableResource(persons);
   items = [];
   itemCount = 0;
+  public user : any;
   public modalRef: BsModalRef; // {1}
 
 
@@ -22,7 +23,7 @@ export class ToDoComponent implements OnInit {
   public template:TemplateRef<any>;
   public openModal(template,rowEvent) {
     this.modalRef = this.modalService.show(template); // {3}
-   alert('Clicked: ' + rowEvent.row.item.name);
+    this.user= rowEvent.row.item.name;
   }
   reloadItems(params) {
       this.itemResource.query(params).then(items => this.items = items);

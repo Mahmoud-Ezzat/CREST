@@ -7,6 +7,7 @@ import { ToDoComponent } from './to-do/to-do.component';
 import { DataTableDemo1 } from './demo1/data-table-demo1';
 import { PaginationModule } from 'ngx-bootstrap';
 import { DataTableModule } from './data-table';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataTableDemo1Remote } from './demo1/data-table-demo1-remote';
 
 
@@ -20,7 +21,8 @@ import { DataTableDemo1Remote } from './demo1/data-table-demo1-remote';
   ],
   imports: [
     BrowserModule,
-    BrowserModule, CommonModule, FormsModule, DataTableModule
+    BrowserModule, CommonModule, FormsModule, DataTableModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,12 @@
 <div class="form-body-conetent">
   <h4>To Do</h4>
   <data-table id="persons-grid"
-        headerTitle="Employees"
+      
         [items]="items"
         [itemCount]="itemCount"
         (reload)="reloadItems($event)"
 
-        (rowClick)="rowClick($event)"
+        (rowClick)="rowClick($event);openModal(template,$event)"
         (rowDoubleClick)="rowDoubleClick($event)"
         [rowTooltip]="rowTooltip"
         >
@@ -16,6 +16,7 @@
             [sortable]="true"
             [resizable]="true">
         </data-table-column>
+        
         <data-table-column
             [property]="'date'"
             [header]="'Date'"
@@ -50,4 +51,21 @@
             </ng-template>
         </data-table-column>
     </data-table>
+
+    <button type="button" class="btn btn-info" 
+        (click)="openModal(template)">Create template modal</button>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Modal</h4>
+        <button type="button" class="close pull-right" 
+                aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        This is a modal.
+    </div>
+</ng-template>
+
 </div>

@@ -2,3 +2,12 @@
 body {
   background: #88b5e7 url(images/FXR_ILR_04.jpg) repeat-x top left;
 }
+.table-condensed>tbody>tr>td, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>td, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>thead>tr>th{
+  padding: 1px;
+}
+.modal-body{
+  min-height: 600px;
+}
+.data-table-header{
+
+}

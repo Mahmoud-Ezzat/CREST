@@ -54,7 +54,7 @@ export class DataTable implements DataTableParams, OnInit {
 
     // UI state without input:
 
-    indexColumnVisible: boolean;
+    indexColumnVisible: boolean = false;
     selectColumnVisible: boolean;
     expandColumnVisible: boolean;
 

@@ -1,6 +1,8 @@
 .pagination-box {
     position: relative;
     margin-top: -10px;
+    min-height: 50px;
+    margin-right: 10px;
 }
 .pagination-range {
     margin-top: 7px;

@@ -4,13 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ToDoComponent } from './to-do/to-do.component';
-import { DataTableDemo1 } from './demo1/data-table-demo1';
 import { PaginationModule } from 'ngx-bootstrap';
 import { DataTableModule } from './data-table';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { DataTableDemo1Remote } from './demo1/data-table-demo1-remote';
 // import { TodoModalComponent } from ' ./todo-modal/todo-modal.component';
 import { TodoModalComponent } from './to-do/todo-modal/todo-modal.component';
+import { HttpModule } from '@angular/http';
 
 
 
@@ -18,13 +17,11 @@ import { TodoModalComponent } from './to-do/todo-modal/todo-modal.component';
   declarations: [
     AppComponent,
     ToDoComponent,
-    DataTableDemo1,
-    DataTableDemo1Remote,
     TodoModalComponent ,
   ],
   imports: [
     BrowserModule,
-    BrowserModule, CommonModule, FormsModule, DataTableModule,
+    BrowserModule, CommonModule, FormsModule, DataTableModule,HttpModule,
     ModalModule.forRoot()
   ],
   providers: [],

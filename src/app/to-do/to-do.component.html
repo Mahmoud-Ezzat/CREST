@@ -1,70 +1,48 @@
 <div class="form-body-conetent">
-  <h4>To Do</h4>
-  <data-table id="persons-grid"
-      
-        [items]="items"
-        [itemCount]="itemCount"
-        (reload)="reloadItems($event)"
+  <div class="facilties-cancel">
+    <h4>Facilities to be Canceled</h4>
+  </div>
 
-        (rowClick)="rowClick($event);openModal(template,$event)"
-        (rowDoubleClick)="rowDoubleClick($event)"
-        [rowTooltip]="rowTooltip"
-        >
-        <data-table-column
-            [property]="'name'"
-            [header]="'Name'"
-            [sortable]="true"
-            [resizable]="true">
-        </data-table-column>
-        
-        <data-table-column
-            [property]="'date'"
-            [header]="'Date'"
-            [sortable]="true">
-            <ng-template #dataTableCell let-item="item">
-                <span>{{item.date | date:'yyyy-MM-dd'}}</span>
-            </ng-template>
-        </data-table-column>
-        <data-table-column
-            property="phoneNumber"
-            header="Phone number"
-            width="150px">
-        </data-table-column>
-        <data-table-column
-            [property]="'jobTitle'"
-            [header]="'Job title'"
-            [visible]="false">
-        </data-table-column>
-        <data-table-column
-            [property]="'active'"
-            [header]="'Active'"
-            [width]="100"
-            [resizable]="true">
-            <ng-template #dataTableHeader let-item="item">
-                <span style="color: rgb(232, 0, 0)">Active</span>
-            </ng-template>
-            <ng-template #dataTableCell let-item="item">
-                <span style="color: grey">
-                <span class="glyphicon glyphicon-ok" *ngIf="item.active"></span>
-                <span class="glyphicon glyphicon-remove" *ngIf="!item.active"></span>
-                </span>
-            </ng-template>
-        </data-table-column>
-    </data-table>
-<!-- 
+  <data-table id="persons-grid" [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)" (rowClick)="rowClick($event);"
+    (rowDoubleClick)="rowDoubleClick($event)" [rowTooltip]="rowTooltip">
+    <data-table-column [property]="'ID'" [header]="'Request Number'" [sortable]="true" [resizable]="true" (cellClick)="openModal(template,$event);">
+    </data-table-column>
+    <!-- <data-table-column
+        [property]="'date'"
+        [header]="'Date'"
+        [sortable]="true">
+        <ng-template #dataTableCell let-item="item">
+            <span>{{item.date | date:'yyyy-MM-dd'}}</span>
+        </ng-template>
+    </data-table-column> -->
+    <data-table-column [property]="'BAR_CreditID'" [header]="'Credit Facility id'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'LegalEntityName'" [header]="'Legal Entity'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'BankName'" [header]="'Bank'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'BranchCity'" [header]="'Bank City'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'BranchCountry'" [header]="'Bank Country'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'TotalFacilityLimit'" [header]="'Facility limit (USD Equiv.)'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'ExpirationDate'" [header]="'Expiration Date'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+  </data-table>
+  <!-- 
     <button type="button" class="btn btn-info" 
         (click)="openModal(template)">Create template modal</button> -->
-<ng-template #template>
+  <ng-template #template>
     <div class="modal-header">
-        <h4 class="modal-title pull-left">Modal</h4>
-        <button type="button" class="close pull-right" 
-                aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+      <h4 class="modal-title pull-left">Request Number:{{requestId}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
     <div class="modal-body">
-       <app-todo-modal [user]=user></app-todo-modal>
+      <app-todo-modal [requestId]=requestId></app-todo-modal>
     </div>
-</ng-template>
+  </ng-template>
 
 </div>

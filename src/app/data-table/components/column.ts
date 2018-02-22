@@ -1,6 +1,8 @@
-import { Directive, Input, ContentChild, OnInit } from '@angular/core';
+import { Directive, Input, ContentChild, OnInit,EventEmitter,Output } from '@angular/core';
 import { DataTableRow } from './row';
 import { CellCallback } from './types';
+//import { Output } from '../../../../node_modules/@angular/core/src/metadata/directives';
+//import { EventEmitter } from '../../../../CREST-master/node_modules/@angular/core/src/event_emitter';
 
 
 @Directive({
@@ -15,10 +17,12 @@ export class DataTableColumn implements OnInit {
     @Input() property: string;
     @Input() styleClass: string;
     @Input() cellColors: CellCallback;
+    @Output() cellClick = new EventEmitter();
 
     // init and state:
     @Input() width: number | string;
     @Input() visible = true;
+    
 
     @ContentChild('dataTableCell') cellTemplate;
     @ContentChild('dataTableHeader') headerTemplate;
@@ -49,5 +53,12 @@ export class DataTableColumn implements OnInit {
                 [this.styleClass]: true
             };
         }
+    }
+    onCellClick(row:any)
+    {
+        let data:string[] = [];
+        data.push(this.property);
+        data.push(row.item.ID);
+        this.cellClick.emit(data);
     }
 }

@@ -5,10 +5,10 @@
         <table class="table table-condensed table-bordered data-table">
             <thead>
                 <tr>
-                    <th [hide]="!expandColumnVisible" class="expand-column-header">
+                    <!-- <th [hide]="!expandColumnVisible" class="expand-column-header">
                     <th [hide]="!indexColumnVisible" class="index-column-header">
                         <span [textContent]="indexColumnHeader"></span>
-                    </th>
+                    </th> -->
                     <th [hide]="!selectColumnVisible" class="select-column-header">
                         <input [hide]="!multiSelect" type="checkbox" [(ngModel)]="selectAllCheckbox"/>
                     </th>
@@ -37,7 +37,7 @@
                     [class.row-even]="(index + items.length) % 2 === 1"
                     >
                     <td [hide]="!expandColumnVisible"></td>
-                    <td [hide]="!indexColumnVisible">&nbsp;</td>
+                    <!-- <td [hide]="!indexColumnVisible">&nbsp;</td> -->
                     <td [hide]="!selectColumnVisible"></td>
                     <td *ngFor="let column of columns" [hide]="!column.visible">
                 </tr>

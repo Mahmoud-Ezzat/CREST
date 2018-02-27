@@ -25,7 +25,10 @@ export class ToDoComponent implements OnInit {
   ngOnInit() {
     }
   public openModal(template,rowEvent) {
-    this.modalRef = this.modalService.show(template); // {3}
+      let modaoptions:any={
+        disableClose:true,backdrop: 'static'
+      }
+    this.modalRef = this.modalService.show(template,modaoptions); // {3}
     this.requestId= rowEvent[1];
   }
   getData(){

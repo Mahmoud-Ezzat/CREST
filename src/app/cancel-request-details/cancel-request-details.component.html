@@ -1,0 +1,140 @@
+<div class="form-body-conetent" *ngIf="requestDetails">
+
+  <div>
+    <button *ngIf="requestDetails.ShowDeleteRequestBtn" class="btn btn-info" (click)="deleteRequest()">Delete Cancel Request </button>
+    <button class="btn btn-info" (click)="downloadPDF()">Download To PDF </button>
+    <button *ngIf="requestDetails.ShowCloseRequestBtn" class="btn btn-info" (click)="closePopup()">Close</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th colspan="2">Credit Facility Request Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Credit Facility id</td>
+        <td>{{requestDetails.CreditFacilityId}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Reporting Entity</td>
+        <td>{{requestDetails.ReportingEntity}} </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Legal Entity </td>
+        <td>{{requestDetails.LegalEntity}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Total Facility Limit: USD equiv </td>
+        <td>{{requestDetails.TotalFacilityLimit}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Currency </td>
+        <td>{{requestDetails.Currency}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Expiration Date </td>
+        <td>{{requestDetails.ExpiryDate}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Bank </td>
+        <td>{{requestDetails.BankName}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Bank City </td>
+        <td>{{requestDetails.BankCity}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Bank Country</td>
+        <td>{{requestDetails.BankCountry}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- <data-table id="history-grid" [items]="items" [itemCount]="itemCount" (reload)="reloadItems($event)">
+    <data-table-column [property]="'RequestAction'" [header]="'Action'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'UserName'" [header]="'Name'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'UserRole'" [header]="'Role'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'Comment'" [header]="'Comment'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+    <data-table-column [property]="'ActionDate'" [header]="'Date'" [sortable]="true" [resizable]="true">
+    </data-table-column>
+  </data-table> -->
+
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Role
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Approve
+        </th>
+        <th>
+          Decline
+        </th>
+        <th>
+          Ask For Info
+        </th>
+        <th>
+          Reminder
+        </th>
+        <th>
+          No. of Reminders
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let request of items">
+      <td>
+        {{request.Role}}
+      </td>
+      <td>
+        {{request.Name}}
+      </td>
+      <td *ngIf="request.NoActionTaken">
+        <button class="btn btn-sm btn-success">Approve</button>
+      </td>
+      <td *ngIf="request.NoActionTaken">
+        <button class="btn btn-sm btn-success">Decline</button>
+      </td>
+      <td *ngIf="request.NoActionTaken">
+        <button class="btn btn-sm btn-success">Ask for info</button>
+      </td>
+      <td *ngIf="! request.NoActionTaken">
+        <label *ngIf="request.IsApproved"> {{request.ActionDate}} </label>
+      </td>
+      <td *ngIf="! request.NoActionTaken">
+        <label *ngIf="request.IsRejected"> {{request.ActionDate}} </label>
+      </td>
+      <td *ngIf="! request.NoActionTaken">
+        <label *ngIf="request.IsAskForInfo"> {{request.ActionDate}} </label>
+      </td>
+      <td>
+        <button class="btn btn-sm btn-success"></button>
+      </td>
+      <td>
+        {{request.RemindersCount}}
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</div>

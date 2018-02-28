@@ -9,6 +9,7 @@ import { DataTableModule } from './data-table';
 import { ModalModule } from 'ngx-bootstrap/modal';
 // import { TodoModalComponent } from ' ./todo-modal/todo-modal.component';
 import { TodoModalComponent } from './to-do/todo-modal/todo-modal.component';
+import { CancelRequestDetailsComponent } from './cancel-request-details/cancel-request-details.component';
 import { HttpModule } from '@angular/http';
 
 
@@ -18,6 +19,7 @@ import { HttpModule } from '@angular/http';
     AppComponent,
     ToDoComponent,
     TodoModalComponent ,
+    CancelRequestDetailsComponent
   ],
   imports: [
     BrowserModule,

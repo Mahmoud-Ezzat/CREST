@@ -20,10 +20,12 @@ export class ToDoService {
         // this.headers.append('Access-Control-Allow-Headers','Content-Type, Authorization, api_token, user_token')
         //this.headers.append('Content-Type', 'application/json')
         this.headers.append('CFPGCustomHeader','4465C654-FC48-4495-A5C6-07D9BA964E9C');
+        this.headers.append('userID','2');
         this.options = new RequestOptions({ headers: this.headers });
     }
     getData() {
-        return this.http.get(this.serviceUrl + 'GetFacilitiesToBeCancelled?userRoleId=2',{headers: this.headers})
+        debugger;
+        return this.http.get(this.serviceUrl + 'GetFacilitiesToBeCancelled',{headers: this.headers})
             .map(res => res.json())
             .catch((error:any) =>
             this.errors = Observable.throw(error.json().error || 'Server error'));;

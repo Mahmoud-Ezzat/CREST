@@ -25,10 +25,7 @@ export class ToDoComponent implements OnInit {
   ngOnInit() {
     }
   public openModal(template,rowEvent) {
-      let modaoptions:any={
-        disableClose:true,backdrop: 'static'
-      }
-    this.modalRef = this.modalService.show(template,modaoptions); // {3}
+    this.modalRef = this.modalService.show(template); // {3}
     this.requestId= rowEvent[1];
   }
   getData(){
@@ -65,5 +62,5 @@ export class ToDoComponent implements OnInit {
   rowDoubleClick(rowEvent) {
       alert('Double clicked: ' + rowEvent.row.item.name);
   }
-  rowTooltip(item) { return item.jobTitle; }
+  rowTooltip(item) { return "Request Number:" + item.ID; }
 }
